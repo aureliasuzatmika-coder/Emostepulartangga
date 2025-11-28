@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EmoStep: Ular Tangga Sosial</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>🐍 EmoStep: Ular Tangga Sosial 🪜</h1>
+        <p>Permainan yang mengajarkan bahwa tindakan sosial mempengaruhi langkah kita (Maju/Mundur).</p>
+    </header>
+
+    <main>
+        <section id="game-board-area">
+            <h2>Papan Ular Tangga (10x10)</h2>
+            <div id="board-container">
+                </div>
+        </section>
+
+        <section id="action-area">
+            <h2>Status & Aksi Pemain</h2>
+            
+            <div id="current-player-status" class="card-info">
+                Giliran: <span id="current-player-name">N/A</span> | Posisi: Kotak <span id="current-player-pos">0</span>
+            </div>
+
+            <div id="card-display">
+                <p class="role-card-display">Peran: <span id="role-card">Ambil Kartu</span></p>
+                <p class="action-card-display">Tindakan: <span id="action-card">Ambil Kartu</span></p>
+                <p class="type-card-display">Jenis: <span id="action-type">N/A</span></p>
+            </div>
+
+            <div class="buttons">
+                <button id="draw-card-btn">Ambil Kartu Baru</button>
+                <button id="perform-action-btn" disabled>Tampilkan & Tunggu Penilaian Hakim</button>
+                <button id="reject-btn" disabled>Tolak Kartu</button>
+            </div>
+
+            <div id="judge-decision-area" style="display: none;">
+                <h3>*Penilaian Hakim (Simulasi)*</h3>
+                <p>Pemain harus maju/mundur 1-3 langkah. Keputusan Anda (Hakim):</p>
+                <button id="judge-move-btn" data-steps="1" disabled>Maju 1 Langkah</button>
+                <button id="judge-move-btn" data-steps="2" disabled>Maju 2 Langkah</button>
+                <button id="judge-move-btn" data-steps="3" disabled>Maju 3 Langkah</button>
+                <button id="judge-move-btn" data-steps="-1" disabled>Mundur 1 Langkah</button>
+                <button id="judge-move-btn" data-steps="-2" disabled>Mundur 2 Langkah</button>
+                <button id="judge-move-btn" data-steps="-3" disabled>Mundur 3 Langkah</button>
+            </div>
+
+            <div id="rejection-reason">
+                <label for="reason-input">Alasan Penolakan:</label>
+                <input type="text" id="reason-input" placeholder="Tulis alasan menolak kartu (misal: tidak nyaman)...">
+                <button id="submit-rejection-btn" disabled>Kirim Alasan ke Hakim</button>
+            </div>
+
+            <div id="judge-log">
+                <h3>Log Hakim</h3>
+                <p id="log-message">Permainan dimulai. Klik 'Ambil Kartu Baru'.</p>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

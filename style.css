@@ -1,0 +1,121 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #4a90e2;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+main {
+    display: flex;
+    max-width: 1300px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+#game-board-area {
+    flex: 2; 
+    padding-right: 20px;
+}
+
+#action-area {
+    flex: 1;
+    padding-left: 20px;
+    border-left: 1px solid #ccc;
+}
+
+/* --- Styling Papan --- */
+#board-container {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+    width: 600px; 
+    height: 600px; 
+    border: 3px solid #333;
+    position: relative; 
+}
+
+.square {
+    border: 1px solid #aaa;
+    display: flex;
+    align-items: flex-start; /* Nomor kotak di atas kiri */
+    justify-content: flex-start;
+    padding: 5px;
+    font-weight: bold;
+    font-size: 0.9em;
+    background-color: #ecf0f1;
+    position: relative;
+}
+
+.square:nth-child(odd) { background-color: #dce1e3; }
+
+.square.start { background-color: #d0f0d0; } /* Hijau muda */
+.square.end { background-color: #f0d0d0; } /* Merah muda */
+.square.ladder { background-color: #a8e6a8; } /* Tangga: Hijau */
+.square.snake { background-color: #e6a8a8; } /* Ular: Merah */
+
+/* --- Styling Token Pemain --- */
+.player-token {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    position: absolute;
+    transition: transform 0.8s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 0.7em;
+    font-weight: bold;
+    z-index: 10; 
+    border: 2px solid white;
+}
+#player-token-1 { background-color: #f39c12; }
+#player-token-2 { background-color: #9b59b6; }
+#player-token-3 { background-color: #3498db; }
+
+/* --- Styling Aksi Area --- */
+#card-display p, .card-info {
+    padding: 10px;
+    border-radius: 4px;
+    margin: 10px 0;
+    font-size: 1em;
+}
+
+.role-card-display { background-color: #f9e79f; } /* Kuning Muda */
+.action-card-display { background-color: #f5f5f5; border: 1px solid #ddd; }
+.type-card-display { font-weight: bold; }
+
+.buttons button, #judge-decision-area button {
+    padding: 10px;
+    margin: 5px 5px 5px 0;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+#draw-card-btn { background-color: #3498db; color: white; }
+#perform-action-btn { background-color: #2ecc71; color: white; }
+#reject-btn { background-color: #f39c12; color: white; }
+#submit-rejection-btn { background-color: #9b59b6; color: white; }
+
+#judge-decision-area button[data-steps^="-"] { background-color: #e74c3c; color: white; } /* Mundur */
+#judge-decision-area button:not([data-steps^="-"]):not(#judge-penalty-btn) { background-color: #2ecc71; color: white; } /* Maju */
+
+#judge-log {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border: 1px dashed #333;
+}
